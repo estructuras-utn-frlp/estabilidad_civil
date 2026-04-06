@@ -6,7 +6,7 @@ title: "TP N°1 — Fuerzas Concurrentes en el Plano"
 
 El enunciado completo está disponible para descargar:
 
-[📄 Descargar enunciado (PDF)](enunciado_tp1.pdf)
+[📄 Descargar enunciado (PDF)](tp1_enunciado.pdf)
 
 ## Explicación
 

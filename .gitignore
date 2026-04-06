@@ -1,6 +1,6 @@
 # Quarto output
 /.quarto/
-docs/
+build/
 
 # LaTeX auxiliares
 *.aux
@@ -13,7 +13,4 @@ docs/
 
 # Quarto intermediate
 *_files/
-*.html
-*.pdf
-!docs/**
 **/*.quarto_ipynb
