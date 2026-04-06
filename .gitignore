@@ -1,6 +1,7 @@
 # Quarto output
 /.quarto/
 build/
+*index.pdf
 
 # LaTeX auxiliares
 *.aux
