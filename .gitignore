@@ -1,0 +1,15 @@
+# Quarto output
+tp1_presentacion_files/
+tp1_documento.html
+tp1_documento.pdf
+tp1_presentacion.html
+build/
+
+# LaTeX auxiliares
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
