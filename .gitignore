@@ -1,9 +1,6 @@
 # Quarto output
-tp1_presentacion_files/
-tp1_documento.html
-tp1_documento.pdf
-tp1_presentacion.html
-build/
+/.quarto/
+docs/
 
 # LaTeX auxiliares
 *.aux
@@ -13,3 +10,10 @@ build/
 *.synctex.gz
 *.fls
 *.fdb_latexmk
+
+# Quarto intermediate
+*_files/
+*.html
+*.pdf
+!docs/**
+**/*.quarto_ipynb
