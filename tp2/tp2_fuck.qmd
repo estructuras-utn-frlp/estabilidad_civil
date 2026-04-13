@@ -1,0 +1,714 @@
+---
+title: "Fuerzas No Concurrentes en el Plano"
+subtitle: "TP N°2 — Estabilidad · 2° año Ingeniería Civil"
+author: "Cátedra: Ing. Zangara / Ing. Ronconi"
+lang: es
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    scrollable: true
+    transition: fade
+    background-transition: none
+    footer: "Estabilidad — UTN FRLP · 2026"
+    width: 1050
+    height: 700
+    margin: 0.1
+    center: false
+    navigation-mode: linear
+    controls-layout: edges
+    controls-tutorial: false
+    hash: true
+    history: true
+    hash-one-based-index: false
+    fragment-in-url: false
+    pdf-separate-fragments: false
+    auto-stretch: true
+---
+
+## ¿Qué cambia respecto al TP1?
+
+En el TP1 todas las fuerzas pasaban por el mismo punto: el origen.
+
+En este TP las fuerzas tienen **distintos puntos de aplicación** — no se cortan en un punto común.
+
+> Eso cambia todo: ya no alcanza con saber módulo y dirección de la Resultante.  
+> Ahora también hay que determinar **dónde actúa**.
+
+---
+
+## Lo que el TP pide resolver
+
+| Ejercicio | Problema | Métodos |
+|---|---|---|
+| 1 | Hallar la Resultante de 4 fuerzas no concurrentes | Analítico + polígono funicular |
+| 2 | Descomponer P en 3 direcciones no concurrentes | Cullman · Ritter · Analítico |
+
+---
+
+## Ejercicio 1 — las tres incógnitas
+
+Para un sistema no concurrente la Resultante tiene tres incógnitas:
+
+$$|\mathbf{R}|, \quad \theta_R, \quad \text{recta de acción}$$
+
+Las dos primeras se obtienen igual que en el TP1:
+
+$$ R_x = \sum F_i \cos\theta_i \qquad R_y = \sum F_i \sin\theta_i $$
+
+La tercera — **dónde actúa** — requiere una ecuación de momentos.
+
+---
+
+## Ejercicio 1 — método analítico
+
+**Dos proyecciones + una de momentos:**
+
+$$\sum F_x = R_x \qquad \sum F_y = R_y \qquad \sum M_O = M_R$$
+
+La ecuación de momentos respecto al origen da:
+
+$$M_R = -R_x \cdot y_0 + R_y \cdot x_0$$
+
+Esa es la **ecuación de la recta de acción** de la Resultante.
+
+::: {.callout-tip}
+Para el Ejercicio 1: $R_x = -3{,}86\,\text{TN}$, $R_y = -2{,}93\,\text{TN}$, $|\mathbf{R}| = 4{,}85\,\text{TN}$, $\alpha_R = 37{,}2°$.  
+La recta de acción pasa por $(0;\, 1{,}27)$.
+:::
+
+---
+
+## Ejercicio 1 — método gráfico: polígono funicular
+
+El polígono funicular localiza la recta de acción de la Resultante sin ecuaciones.
+
+**Procedimiento:**
+
+1. Construir el **polígono de fuerzas** (une los vectores cabeza a cola).
+2. Elegir un **polo** O fuera del polígono y trazar los **rayos** O–1, O–2, ... O–n.
+3. Trazar los **lados del funicular** paralelos a cada rayo, por puntos sobre las rectas de acción de cada fuerza, siguiendo el orden del polígono.
+4. El cruce del **primer y último lado** del funicular da un punto de la recta de acción de $\mathbf{R}$.
+
+::: {.callout-note}
+La dirección de $\mathbf{R}$ la da el polígono de fuerzas.  
+La ubicación de $\mathbf{R}$ la da el polígono funicular.  
+Son dos construcciones complementarias, no alternativas.
+:::
+
+---
+
+## Ejercicio 1 — diferencia con el TP1
+
+| | TP1 (concurrentes) | TP2 (no concurrentes) |
+|---|---|---|
+| Punto de aplicación | Único (origen) | Distinto por fuerza |
+| Incógnitas de R | Módulo + dirección | Módulo + dirección + recta de acción |
+| Método gráfico | Polígono de fuerzas | Polígono de fuerzas + funicular |
+| Ecuaciones | 2 (proyecciones) | 2 proyecciones + 1 momento |
+
+---
+
+## Ejercicio 2 — el problema inverso
+
+En el Ejercicio 1 se **compone** un sistema en una Resultante.  
+En el Ejercicio 2 se **descompone** una fuerza $P$ en tres componentes no concurrentes.
+
+Las tres componentes actúan sobre **tres rectas de acción distintas** que no pasan por el mismo punto.
+
+::: {.callout-warning}
+Tres incógnitas ($F_a$, $F_b$, $F_c$) requieren tres ecuaciones independientes.  
+Las mismas combinaciones del Ejercicio 1 sirven, pero ahora las fuerzas son las incógnitas y $\mathbf{R} = P$ es el dato.
+:::
+
+---
+
+## Ejercicio 2 — método analítico
+
+**Opción I — 2 proyecciones + 1 momento:**
+
+$$\sum F_x = R_x \qquad \sum F_y = R_y \qquad \sum M_A = M_R$$
+
+El punto A puede ser cualquiera. Elegirlo sobre la recta de acción de una componente la cancela del sistema y simplifica el cálculo.
+
+**Opción II — 3 momentos (método de Ritter):**
+
+$$\sum M_D = M_R \qquad \sum M_E = M_R \qquad \sum M_F = M_R$$
+
+Los puntos D, E, F son las intersecciones de las rectas de acción **tomadas de a pares**. Cada ecuación tiene una sola incógnita.
+
+::: {.callout-tip}
+Ritter es más elegante cuando se puede construir el gráfico en escala: las distancias a los puntos de momento se leen directamente.
+:::
+
+---
+## Método de Ritter — interpretación geométrica
+
+```{=html}
+<div id="ritter-container" style="font-family: sans-serif; max-width: 700px; margin: 0 auto; margin-top: 30px;">
+  <svg id="ritter-svg" width="700" height="500" style="border: 1px solid #ddd; background: #fafafa;"></svg>
+  <div style="margin-top: 10px; display: flex; align-items: center; gap: 12px;">
+    <button id="ritter-next" style="padding: 8px 20px; background: #2c5f8a; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 14px;">Siguiente →</button>
+    <button id="ritter-reset" style="padding: 8px 16px; background: #888; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 14px;">↺ Reiniciar</button>
+    <span id="ritter-label" style="font-size: 13px; color: #333;"></span>
+  </div>
+</div>
+
+<script>
+(function() {
+  const svg = d3.select("#ritter-svg");
+  const W = 700, H = 500;
+  const cx = 220, cy = 280, scale = 45;
+  function tx(x) { return cx + x * scale; }
+  function ty(y) { return cy - y * scale; }
+
+  const ang_a = 55 * Math.PI / 180;
+  const ang_b = 0;
+  const t55 = Math.tan(ang_a);
+  const t40 = Math.tan(40 * Math.PI / 180);
+
+  // Intersecciones de rectas de a pares
+  // D = a ∩ b: y=0 → tan55*(x-0)+2=0 → x = -2/tan55
+  const xD = -2 / t55, yD = 0;
+  // E = a ∩ c: x=0 → y=2 (punto de paso de a)
+  const xE = 0, yE = 2;
+  // F = b ∩ c: x=0, y=0
+  const xF = 0, yF = 0;
+
+  const steps = [
+    { label: "Sistema inicial con P y las tres rectas de acción", draw: drawStep0 },
+    { label: "Paso 1: identificar D = a ∩ b. Desde D solo actúa Fc (a y b pasan por D)", draw: drawStep1 },
+    { label: "Paso 2: ecuación ΣM_D = M_R → despejamos Fc directamente", draw: drawStep2 },
+    { label: "Paso 3: identificar E = a ∩ c. Desde E solo actúa Fb", draw: drawStep3 },
+    { label: "Paso 4: ecuación ΣM_E = M_R → despejamos Fb directamente", draw: drawStep4 },
+    { label: "Paso 5: identificar F = b ∩ c. Desde F solo actúa Fa", draw: drawStep5 },
+    { label: "Paso 6: ecuación ΣM_F = M_R → despejamos Fa. Sistema resuelto.", draw: drawStep6 }
+  ];
+
+  let current = 0;
+
+  function clearSvg() { svg.selectAll("*").remove(); }
+
+  function drawAxes() {
+    svg.append("line").attr("x1",20).attr("y1",ty(0)).attr("x2",W-20).attr("y2",ty(0))
+       .attr("stroke","#ccc").attr("stroke-width",1);
+    svg.append("line").attr("x1",tx(0)).attr("y1",20).attr("x2",tx(0)).attr("y2",H-20)
+       .attr("stroke","#ccc").attr("stroke-width",1);
+  }
+
+  function extLine(angle_rad, px, py, color, label) {
+    const ex = Math.cos(angle_rad), ey = Math.sin(angle_rad);
+    const t1 = -7, t2 = 7;
+    svg.append("line")
+       .attr("x1",tx(px+t1*ex)).attr("y1",ty(py+t1*ey))
+       .attr("x2",tx(px+t2*ex)).attr("y2",ty(py+t2*ey))
+       .attr("stroke",color).attr("stroke-width",1.5)
+       .attr("stroke-dasharray","6,3").attr("opacity",0.7);
+    svg.append("text").attr("x",tx(px+t2*ex)+5).attr("y",ty(py+t2*ey))
+       .text(label).attr("font-size",13).attr("fill",color).attr("font-weight","bold");
+  }
+
+  function dot(x, y, color, label, offx=8, offy=-8) {
+    svg.append("circle").attr("cx",tx(x)).attr("cy",ty(y)).attr("r",6).attr("fill",color);
+    if(label) svg.append("text").attr("x",tx(x)+offx).attr("y",ty(y)+offy)
+                 .text(label).attr("font-size",13).attr("fill",color).attr("font-weight","bold");
+  }
+
+  function arrow(x1,y1,x2,y2,color,id) {
+    const markId = "rarrow-"+id;
+    svg.append("defs").append("marker")
+       .attr("id",markId).attr("viewBox","0 0 10 10")
+       .attr("refX",8).attr("refY",5)
+       .attr("markerWidth",6).attr("markerHeight",6)
+       .attr("orient","auto")
+       .append("path").attr("d","M 0 0 L 10 5 L 0 10 z").attr("fill",color);
+    svg.append("line")
+       .attr("x1",tx(x1)).attr("y1",ty(y1))
+       .attr("x2",tx(x2)).attr("y2",ty(y2))
+       .attr("stroke",color).attr("stroke-width",2)
+       .attr("marker-end","url(#"+markId+")");
+  }
+
+  function momentCircle(x, y, color, label) {
+    svg.append("circle").attr("cx",tx(x)).attr("cy",ty(y))
+       .attr("r",22).attr("fill","none")
+       .attr("stroke",color).attr("stroke-width",2)
+       .attr("stroke-dasharray","4,3");
+    svg.append("text").attr("x",tx(x)).attr("y",ty(y)+5)
+       .text(label).attr("font-size",11).attr("fill",color)
+       .attr("text-anchor","middle").attr("font-weight","bold");
+  }
+
+  function baseScene() {
+    drawAxes();
+    extLine(ang_a, 0, 2, "#2c7bb6", "a");
+    extLine(ang_b, -4, 0, "#1a9641", "b");
+    svg.append("line").attr("x1",tx(0)).attr("y1",ty(-5))
+       .attr("x2",tx(0)).attr("y2",ty(6))
+       .attr("stroke","#d7191c").attr("stroke-width",1.5)
+       .attr("stroke-dasharray","6,3").attr("opacity",0.7);
+    svg.append("text").attr("x",tx(0)+5).attr("y",ty(5.5))
+       .text("c").attr("font-size",13).attr("fill","#d7191c").attr("font-weight","bold");
+    const px = Math.cos(40*Math.PI/180)*2.5;
+    const py = Math.sin(40*Math.PI/180)*2.5;
+    arrow(0, 0, px, py, "#8b008b", "rP");
+    svg.append("text").attr("x",tx(px)+8).attr("y",ty(py))
+       .text("P=12kN").attr("font-size",11).attr("fill","#8b008b");
+  }
+
+  function formulaBox(text, x, y) {
+    svg.append("rect").attr("x",x).attr("y",y).attr("width",260).attr("height",28)
+       .attr("fill","#fff9e6").attr("stroke","#e0c060").attr("rx",4);
+    svg.append("text").attr("x",x+8).attr("y",y+19)
+       .text(text).attr("font-size",12).attr("fill","#333");
+  }
+
+  function drawStep0() { baseScene(); }
+
+  function drawStep1() {
+    baseScene();
+    dot(xD, yD, "#e67e00", "D", 10, -10);
+    svg.append("text").attr("x",tx(xD)+10).attr("y",ty(yD)+18)
+       .text(`a ∩ b = (${xD.toFixed(2)}, 0)`).attr("font-size",10).attr("fill","#e67e00");
+    momentCircle(xD, yD, "#e67e00", "M_D");
+  }
+
+  function drawStep2() {
+    drawStep1();
+    formulaBox("ΣM_D = M_R  →  solo Fc tiene brazo ≠ 0", 20, 20);
+    formulaBox("Fc = M_R / d_Dc", 20, 54);
+    arrow(xD, yD, xD, yD - 2, "#d7191c", "Fc2");
+    svg.append("text").attr("x",tx(xD)+8).attr("y",ty(yD-2)-5)
+       .text("Fc").attr("font-size",12).attr("fill","#d7191c").attr("font-weight","bold");
+  }
+
+  function drawStep3() {
+    drawStep2();
+    dot(xE, yE, "#16a085", "E", 10, -10);
+    svg.append("text").attr("x",tx(xE)+10).attr("y",ty(yE)+18)
+       .text("a ∩ c = (0, 2)").attr("font-size",10).attr("fill","#16a085");
+    momentCircle(xE, yE, "#16a085", "M_E");
+  }
+
+  function drawStep4() {
+    drawStep3();
+    formulaBox("ΣM_E = M_R  →  solo Fb tiene brazo ≠ 0", 20, 20);
+    formulaBox("Fb = M_R / d_Eb", 20, 54);
+    arrow(xE - 0.5, yE, xE - 2.5, yE, "#1a9641", "Fb2");
+    svg.append("text").attr("x",tx(xE-2.5)-5).attr("y",ty(yE)-8)
+       .text("Fb").attr("font-size",12).attr("fill","#1a9641").attr("font-weight","bold");
+  }
+
+  function drawStep5() {
+    drawStep4();
+    dot(xF, yF, "#8e44ad", "F", 10, 14);
+    svg.append("text").attr("x",tx(xF)+10).attr("y",ty(yF)+30)
+       .text("b ∩ c = (0, 0)").attr("font-size",10).attr("fill","#8e44ad");
+    momentCircle(xF, yF, "#8e44ad", "M_F");
+  }
+
+  function drawStep6() {
+    drawStep5();
+    formulaBox("ΣM_F = M_R  →  solo Fa tiene brazo ≠ 0", 20, 20);
+    formulaBox("Fa = M_R / d_Fa  ✓ Sistema resuelto", 20, 54);
+    const fax = Math.cos(ang_a)*2.2, fay = Math.sin(ang_a)*2.2;
+    arrow(0, 2, fax, 2 + fay, "#2c7bb6", "Fa2");
+    svg.append("text").attr("x",tx(fax)+8).attr("y",ty(2+fay))
+       .text("Fa").attr("font-size",12).attr("fill","#2c7bb6").attr("font-weight","bold");
+  }
+
+  function render() {
+    clearSvg();
+    steps[current].draw();
+    document.getElementById("ritter-label").textContent =
+      `Paso ${current+1}/${steps.length}: ${steps[current].label}`;
+    document.getElementById("ritter-next").disabled = current >= steps.length - 1;
+  }
+
+  document.getElementById("ritter-next").addEventListener("click", () => {
+    if (current < steps.length - 1) { current++; render(); }
+  });
+  document.getElementById("ritter-reset").addEventListener("click", () => {
+    current = 0; render();
+  });
+
+  render();
+})();
+</script>
+```
+
+---
+
+## Ejercicio 2 — método de Cullman
+
+Método gráfico. Trabaja con la Resultante y las tres rectas de acción.
+
+**Procedimiento:**
+
+1. Identificar el punto donde $\mathbf{R}$ corta a una de las direcciones (ej. dirección $a$).
+2. Identificar el punto donde se cortan las otras dos direcciones (ej. $b$ y $c$ → punto D).
+3. La recta entre esos dos puntos es la **recta auxiliar de Cullman**.
+4. Descomponer $\mathbf{R}$ entre la dirección $a$ y la auxiliar de Cullman → obtenés $F_a$ y $\mathbf{R}_{aux}$.
+5. Descomponer $\mathbf{R}_{aux}$ en las direcciones $b$ y $c$ → obtenés $F_b$ y $F_c$.
+
+::: {.callout-note}
+Cullman resuelve el problema en dos descomposiciones concurrentes sucesivas.  
+Cada descomposición se hace con el método del paralelogramo.
+:::
+
+---
+
+## Cullman — interpretación geométrica
+
+```{=html}
+<div id="cullman-container" style="font-family: sans-serif; max-width: 900px; margin: 0 auto;">
+  <div style="display: flex; gap: 10px;">
+    <div>
+      <div style="font-size: 12px; color: #666; margin-bottom: 4px;">Plano de fuerzas</div>
+      <svg id="cullman-svg" width="500" height="460" style="border: 1px solid #ddd; background: #fafafa;"></svg>
+    </div>
+    <div>
+      <div style="font-size: 12px; color: #666; margin-bottom: 4px;">Polígono de fuerzas</div>
+      <svg id="cullman-poly" width="340" height="460" style="border: 1px solid #ddd; background: #fafafa;"></svg>
+    </div>
+  </div>
+  <div style="margin-top: 10px; display: flex; align-items: center; gap: 12px;">
+    <button id="cullman-next" style="padding: 8px 20px; background: #2c5f8a; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 14px;">Siguiente →</button>
+    <button id="cullman-reset" style="padding: 8px 16px; background: #888; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 14px;">↺ Reiniciar</button>
+    <span id="cullman-label" style="font-size: 12px; color: #333; max-width: 480px;"></span>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>
+(function() {
+
+  // ── PANEL IZQUIERDO: plano de fuerzas ──
+  const svg  = d3.select("#cullman-svg");
+  const poly = d3.select("#cullman-poly");
+
+  // Transformación plano
+  const cx = 180, cy = 300, sc = 42;
+  function tx(x) { return cx + x * sc; }
+  function ty(y) { return cy - y * sc; }
+
+  // Transformación polígono (panel derecho)
+  // El polígono se construye acumulando vectores desde un punto de partida
+  const pcx = 170, pcy = 380, psc = 12; // escala kN→px
+  function px(x) { return pcx + x * psc; }
+  function py(y) { return pcy - y * psc; }
+
+  // ── Datos del problema ──
+  const ang_P = 40  * Math.PI / 180;
+  const ang_a = 55  * Math.PI / 180;
+  const t55   = Math.tan(ang_a);
+  const t40   = Math.tan(ang_P);
+
+  // Punto Q: R corta dirección a
+  const xQ = 2 / (t40 - t55);
+  const yQ = t40 * xQ;
+
+  // Punto D: b ∩ c = (0,0)
+  const xD = 0, yD = 0;
+
+  // Componentes de P
+  const Pmag = 12;
+  const Px = Pmag * Math.cos(ang_P);
+  const Py = Pmag * Math.sin(ang_P);
+
+  // Componentes estimadas (para el polígono ilustrativo)
+  // Fa a lo largo de a, Raux a lo largo de QD, Fb horizontal, Fc vertical
+  const ang_QD = Math.atan2(yD - yQ, xD - xQ);
+  const Fa_est = 5.2,  Raux_est = 8.8;
+  const Fb_est = -7.1, Fc_est   = -5.0;
+
+  // ── Helpers generales ──
+  function mkArrow(sel, id, color) {
+    sel.append("defs").append("marker")
+      .attr("id", id).attr("viewBox","0 0 10 10")
+      .attr("refX",8).attr("refY",5)
+      .attr("markerWidth",5).attr("markerHeight",5)
+      .attr("orient","auto")
+      .append("path").attr("d","M 0 0 L 10 5 L 0 10 z").attr("fill", color);
+  }
+
+  function arrow(sel, x1,y1,x2,y2, color, markId, txFn, tyFn, lw=2) {
+    mkArrow(sel, markId, color);
+    sel.append("line")
+      .attr("x1",txFn(x1)).attr("y1",tyFn(y1))
+      .attr("x2",txFn(x2)).attr("y2",tyFn(y2))
+      .attr("stroke",color).attr("stroke-width",lw)
+      .attr("marker-end","url(#"+markId+")");
+  }
+
+  function dot(sel, x, y, color, label, offx, offy, txFn, tyFn) {
+    sel.append("circle").attr("cx",txFn(x)).attr("cy",tyFn(y)).attr("r",5).attr("fill",color);
+    if(label) sel.append("text").attr("x",txFn(x)+offx).attr("y",tyFn(y)+offy)
+               .text(label).attr("font-size",12).attr("fill",color).attr("font-weight","bold");
+  }
+
+  function extLine(sel, angle_rad, lx, ly, color, label, txFn, tyFn) {
+    const ex = Math.cos(angle_rad), ey = Math.sin(angle_rad);
+    const t1=-7, t2=7;
+    sel.append("line")
+      .attr("x1",txFn(lx+t1*ex)).attr("y1",tyFn(ly+t1*ey))
+      .attr("x2",txFn(lx+t2*ex)).attr("y2",tyFn(ly+t2*ey))
+      .attr("stroke",color).attr("stroke-width",1.4)
+      .attr("stroke-dasharray","6,3").attr("opacity",0.75);
+    sel.append("text").attr("x",txFn(lx+t2*ex)+5).attr("y",tyFn(ly+t2*ey))
+      .text(label).attr("font-size",13).attr("fill",color).attr("font-weight","bold");
+  }
+
+  // ── Plano: escena base ──
+  function drawAxes() {
+    svg.append("line").attr("x1",10).attr("y1",ty(0)).attr("x2",490).attr("y2",ty(0))
+       .attr("stroke","#ccc").attr("stroke-width",1);
+    svg.append("line").attr("x1",tx(0)).attr("y1",10).attr("x2",tx(0)).attr("y2",450)
+       .attr("stroke","#ccc").attr("stroke-width",1);
+    svg.append("text").attr("x",480).attr("y",ty(0)-6).text("X").attr("font-size",11).attr("fill","#aaa");
+    svg.append("text").attr("x",tx(0)+5).attr("y",22).text("Y").attr("font-size",11).attr("fill","#aaa");
+  }
+
+  function drawDirections() {
+    extLine(svg, ang_a, 0, 2, "#2c7bb6", "a", tx, ty);
+    extLine(svg, 0,    -4, 0, "#1a9641", "b", tx, ty);
+    svg.append("line")
+      .attr("x1",tx(0)).attr("y1",ty(-5)).attr("x2",tx(0)).attr("y2",ty(6))
+      .attr("stroke","#d7191c").attr("stroke-width",1.4).attr("stroke-dasharray","6,3").attr("opacity",0.75);
+    svg.append("text").attr("x",tx(0)+5).attr("y",ty(5.5))
+      .text("c").attr("font-size",13).attr("fill","#d7191c").attr("font-weight","bold");
+  }
+
+  function drawP() {
+    arrow(svg, 0,0, Px/Pmag*2.5, Py/Pmag*2.5, "#8b008b","mP", tx,ty);
+    svg.append("text").attr("x",tx(Px/Pmag*2.5)+8).attr("y",ty(Py/Pmag*2.5))
+      .text("P=12kN").attr("font-size",11).attr("fill","#8b008b");
+    dot(svg, 0,0, "#333","O",6,-8,tx,ty);
+  }
+
+  // ── Polígono: panel derecho ──
+  function polyAxes() {
+    poly.append("line").attr("x1",10).attr("y1",py(0)).attr("x2",330).attr("y2",py(0))
+        .attr("stroke","#ddd").attr("stroke-width",1);
+    poly.append("line").attr("x1",px(0)).attr("y1",10).attr("x2",px(0)).attr("y2",450)
+        .attr("stroke","#ddd").attr("stroke-width",1);
+    poly.append("text").attr("x",12).attr("y",20)
+        .text("Polígono de fuerzas").attr("font-size",11).attr("fill","#888");
+  }
+
+  // Acumulador de vectores en el polígono
+  // Cada paso agrega un vector desde el extremo anterior
+  let polyState = { x: 0, y: 0 };
+
+  function polyReset() { polyState = { x: 0, y: 0 }; }
+
+  function polyArrow(vx, vy, color, label, markSuffix) {
+    const x1 = polyState.x, y1 = polyState.y;
+    const x2 = x1 + vx,    y2 = y1 + vy;
+    arrow(poly, x1,y1,x2,y2, color,"pm"+markSuffix, px,py, 2);
+    poly.append("text").attr("x",px(x2)+6).attr("y",py(y2))
+      .text(label).attr("font-size",11).attr("fill",color).attr("font-weight","bold");
+    polyState = { x: x2, y: y2 };
+  }
+
+  // ── Steps ──
+  const steps = [
+    {
+      label: "Sistema inicial: P y las tres rectas de acción a, b, c.",
+      draw() {
+        drawAxes(); drawDirections(); drawP();
+        polyAxes(); polyReset();
+        // Mostrar solo P en el polígono
+        polyArrow(Px, Py, "#8b008b", "P", "P0");
+        dot(poly, 0,0,"#8b008b","O",6,-8,px,py);
+      }
+    },
+    {
+      label: "Paso 1: Q es el punto donde P corta la dirección a.",
+      draw() {
+        drawAxes(); drawDirections(); drawP();
+        dot(svg, xQ,yQ,"#e67e00","Q",8,-10,tx,ty);
+        svg.append("text").attr("x",tx(xQ)+8).attr("y",ty(yQ)+16)
+          .text(`(${xQ.toFixed(2)}, ${yQ.toFixed(2)})`).attr("font-size",9).attr("fill","#e67e00");
+        polyAxes(); polyReset();
+        polyArrow(Px, Py, "#8b008b","P","P1");
+        dot(poly,0,0,"#8b008b","O",6,-8,px,py);
+        // Marcar Q en el polígono
+        poly.append("text").attr("x",px(Px)+6).attr("y",py(Py)-8)
+          .text("→ Q en plano").attr("font-size",9).attr("fill","#e67e00");
+      }
+    },
+    {
+      label: "Paso 2: D = b ∩ c = (0,0). Desde D se descompondrá R_aux.",
+      draw() {
+        drawAxes(); drawDirections(); drawP();
+        dot(svg,xQ,yQ,"#e67e00","Q",8,-10,tx,ty);
+        dot(svg,xD,yD,"#c0392b","D",8,14,tx,ty);
+        svg.append("text").attr("x",tx(xD)+8).attr("y",ty(yD)+28)
+          .text("b ∩ c").attr("font-size",9).attr("fill","#c0392b");
+        polyAxes(); polyReset();
+        polyArrow(Px,Py,"#8b008b","P","P2");
+        dot(poly,0,0,"#8b008b","O",6,-8,px,py);
+        dot(poly,Px,Py,"#c0392b","D",6,-10,px,py);
+      }
+    },
+    {
+      label: "Paso 3: trazar la recta auxiliar de Cullman (Q → D).",
+      draw() {
+        drawAxes(); drawDirections(); drawP();
+        dot(svg,xQ,yQ,"#e67e00","Q",8,-10,tx,ty);
+        dot(svg,xD,yD,"#c0392b","D",8,14,tx,ty);
+        svg.append("line")
+          .attr("x1",tx(xQ)).attr("y1",ty(yQ))
+          .attr("x2",tx(xD)).attr("y2",ty(yD))
+          .attr("stroke","#8e44ad").attr("stroke-width",2.5);
+        svg.append("text")
+          .attr("x",(tx(xQ)+tx(xD))/2+6).attr("y",(ty(yQ)+ty(yD))/2-8)
+          .text("Auxiliar").attr("font-size",10).attr("fill","#8e44ad");
+        polyAxes(); polyReset();
+        polyArrow(Px,Py,"#8b008b","P","P3");
+        dot(poly,0,0,"#8b008b","O",6,-8,px,py);
+        dot(poly,Px,Py,"#c0392b","D",6,-10,px,py);
+        // Auxiliar en polígono: línea de referencia
+        poly.append("line")
+          .attr("x1",px(0)).attr("y1",py(0))
+          .attr("x2",px(Px)).attr("y2",py(Py))
+          .attr("stroke","#8e44ad").attr("stroke-width",1.5)
+          .attr("stroke-dasharray","4,3");
+        poly.append("text").attr("x",px(Px/2)+6).attr("y",py(Py/2)+14)
+          .text("auxiliar").attr("font-size",9).attr("fill","#8e44ad");
+      }
+    },
+    {
+      label: "Paso 4: descomponer P entre dirección a y auxiliar → Fa y R_aux.",
+      draw() {
+        drawAxes(); drawDirections(); drawP();
+        dot(svg,xQ,yQ,"#e67e00","Q",8,-10,tx,ty);
+        dot(svg,xD,yD,"#c0392b","D",8,14,tx,ty);
+        svg.append("line")
+          .attr("x1",tx(xQ)).attr("y1",ty(yQ))
+          .attr("x2",tx(xD)).attr("y2",ty(yD))
+          .attr("stroke","#8e44ad").attr("stroke-width",2);
+        // Fa sobre dirección a desde Q
+        const fax = xQ + Math.cos(ang_a+Math.PI)*1.8;
+        const fay = yQ + Math.sin(ang_a+Math.PI)*1.8;
+        arrow(svg,xQ,yQ,fax,fay,"#2c7bb6","mFa1",tx,ty);
+        svg.append("text").attr("x",tx(fax)-28).attr("y",ty(fay)-8)
+          .text("Fa").attr("font-size",12).attr("fill","#2c7bb6").attr("font-weight","bold");
+        // R_aux desde Q hacia D
+        arrow(svg,xQ,yQ,xD,yD,"#8e44ad","mRaux1",tx,ty);
+        svg.append("text").attr("x",(tx(xQ)+tx(xD))/2-30).attr("y",(ty(yQ)+ty(yD))/2+14)
+          .text("R_aux").attr("font-size",11).attr("fill","#8e44ad").attr("font-weight","bold");
+        // Polígono: P = Fa + R_aux
+        polyAxes(); polyReset();
+        const Fa_vx = Fa_est * Math.cos(ang_a);
+        const Fa_vy = Fa_est * Math.sin(ang_a);
+        polyArrow(Fa_vx, Fa_vy, "#2c7bb6","Fa","Fa1");
+        const Raux_vx = Raux_est * Math.cos(ang_QD);
+        const Raux_vy = Raux_est * Math.sin(ang_QD);
+        polyArrow(Raux_vx, Raux_vy,"#8e44ad","R_aux","Raux1");
+        dot(poly,0,0,"#8b008b","O",6,-8,px,py);
+        // Verificar cierre con P
+        poly.append("line")
+          .attr("x1",px(0)).attr("y1",py(0))
+          .attr("x2",px(Px)).attr("y2",py(Py))
+          .attr("stroke","#8b008b").attr("stroke-width",1.5)
+          .attr("stroke-dasharray","5,3");
+        poly.append("text").attr("x",px(Px/2)+6).attr("y",py(Py/2))
+          .text("P").attr("font-size",10).attr("fill","#8b008b");
+      }
+    },
+    {
+      label: "Paso 5: descomponer R_aux en b y c desde D → Fb y Fc. Sistema resuelto.",
+      draw() {
+        drawAxes(); drawDirections(); drawP();
+        dot(svg,xQ,yQ,"#e67e00","Q",8,-10,tx,ty);
+        dot(svg,xD,yD,"#c0392b","D",8,14,tx,ty);
+        svg.append("line")
+          .attr("x1",tx(xQ)).attr("y1",ty(yQ))
+          .attr("x2",tx(xD)).attr("y2",ty(yD))
+          .attr("stroke","#8e44ad").attr("stroke-width",1.5)
+          .attr("stroke-dasharray","4,3");
+        const fax = xQ + Math.cos(ang_a+Math.PI)*1.8;
+        const fay = yQ + Math.sin(ang_a+Math.PI)*1.8;
+        arrow(svg,xQ,yQ,fax,fay,"#2c7bb6","mFa2",tx,ty);
+        svg.append("text").attr("x",tx(fax)-28).attr("y",ty(fay)-8)
+          .text("Fa").attr("font-size",12).attr("fill","#2c7bb6").attr("font-weight","bold");
+        arrow(svg,xD,yD,xD-2.5,yD,"#1a9641","mFb2",tx,ty);
+        svg.append("text").attr("x",tx(xD-2.5)-5).attr("y",ty(yD)-10)
+          .text("Fb").attr("font-size",12).attr("fill","#1a9641").attr("font-weight","bold");
+        arrow(svg,xD,yD,xD,yD-2,"#d7191c","mFc2",tx,ty);
+        svg.append("text").attr("x",tx(xD)+8).attr("y",ty(yD-2)-5)
+          .text("Fc").attr("font-size",12).attr("fill","#d7191c").attr("font-weight","bold");
+        // Polígono completo: Fa + Fb + Fc = P
+        polyAxes(); polyReset();
+        const Fa_vx = Fa_est * Math.cos(ang_a);
+        const Fa_vy = Fa_est * Math.sin(ang_a);
+        polyArrow(Fa_vx,Fa_vy,"#2c7bb6","Fa","Fa2");
+        polyArrow(Fb_est,0,"#1a9641","Fb","Fb2");
+        polyArrow(0,Fc_est,"#d7191c","Fc","Fc2");
+        dot(poly,0,0,"#8b008b","O",6,-8,px,py);
+        // Cierre: regresa al origen con P
+        const cx2 = polyState.x, cy2 = polyState.y;
+        poly.append("line")
+          .attr("x1",px(cx2)).attr("y1",py(cy2))
+          .attr("x2",px(0)).attr("y2",py(0))
+          .attr("stroke","#8b008b").attr("stroke-width",2)
+          .attr("stroke-dasharray","5,3");
+        poly.append("text").attr("x",px(cx2/2)+6).attr("y",py(cy2/2))
+          .text("P cierra ✓").attr("font-size",10).attr("fill","#8b008b");
+      }
+    }
+  ];
+
+  let current = 0;
+
+  function render() {
+    svg.selectAll("*").remove();
+    poly.selectAll("*").remove();
+    steps[current].draw();
+    document.getElementById("cullman-label").textContent =
+      `Paso ${current+1}/${steps.length}: ${steps[current].label}`;
+    document.getElementById("cullman-next").disabled = current >= steps.length - 1;
+  }
+
+  document.getElementById("cullman-next").addEventListener("click", () => {
+    if (current < steps.length - 1) { current++; render(); }
+  });
+  document.getElementById("cullman-reset").addEventListener("click", () => {
+    current = 0; render();
+  });
+
+  render();
+})();
+</script>
+
+```
+
+
+---
+
+## Comparación de métodos — Ejercicio 2
+
+| Método | Tipo | Requiere | Ventaja |
+|---|---|---|---|
+| Analítico (2P+1M) | Algebraico | Coordenadas y ángulos | Exacto, sistematizable |
+| Ritter (3M) | Algebraico | Intersecciones de rectas | Una incógnita por ecuación |
+| Cullman | Gráfico | Gráfico en escala | Visual, rápido de verificar |
+
+::: {.callout-warning}
+Los tres métodos deben dar el mismo resultado.  
+Resultado del Ejercicio 2: $F_a = 17{,}55\,\text{TN}$, $F_b = -17{,}41\,\text{TN}$, $F_c = -3{,}75\,\text{TN}$.  
+Signo negativo → el sentido supuesto era incorrecto.
+:::
+
+---
+
+## Síntesis
+
+1. En sistemas no concurrentes la Resultante tiene una tercera incógnita: la recta de acción.
+2. La recta de acción se determina analíticamente con una ecuación de momentos.
+3. Gráficamente se determina con el polígono funicular.
+4. Para descomponer en tres direcciones no concurrentes hay tres métodos equivalentes: analítico, Ritter y Cullman.
+5. Ritter elige los puntos de momento estratégicamente para desacoplar las incógnitas.
+6. Cullman reduce el problema a dos descomposiciones concurrentes sucesivas.
