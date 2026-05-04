@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Estabilidad — UTN FRLP"
+  title: "Estabilidad — Ing. Civil"
   navbar:
     left:
       - text: "Inicio"
@@ -12,6 +12,12 @@ website:
         menu:
           - text: "TP1 — Fuerzas Concurrentes"
             href: tp1/index.qmd
+          - text: "TP2 — Fuerzas No Concurrentes"
+            href: tp2/index.qmd
+          - text: "TP3 — Aplicaciones"
+            href: tp3/index.qmd
+          - text: "TP4 — Fuerzas en el Espacio"
+            href: tp4/index.qmd
   page-footer:
     center: "Cátedra Zangara / Ronconi · Ingeniería Civil 2026"
 
