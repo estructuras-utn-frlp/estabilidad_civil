@@ -1,0 +1,15 @@
+---
+title: "TP N°4 — Sistemas de Fuerzas en el Espacio"
+---
+
+## Enunciado
+
+[📄 Descargar enunciado (PDF)](tp4_enunciado.pdf)
+
+## Explicación
+
+{{< include tp4_documento.qmd >}}
+
+## Presentación de clase
+
+[▶ Ver presentación](tp4_presentacion.qmd)

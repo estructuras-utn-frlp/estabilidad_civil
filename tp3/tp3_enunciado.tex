@@ -1,0 +1,102 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{titlesec}
+
+% Configuración de márgenes
+\geometry{top=2cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+
+% Comando para línea divisoria personalizada
+\newcommand{\linea}{\vspace{0.5cm} \hrule \vspace{0.5cm}}
+
+\title{Trabajo Práctico: Análisis Estático y Acción del Viento sobre un Tanque Elevado}
+\author{Cátedra de Estabilidad / Estructuras}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Objetivo}
+Aplicar los conceptos de fuerzas no concurrentes para determinar la carga de viento sobre una estructura elevada y evaluar su estabilidad ante el momento volcador, utilizando como marco normativo el reglamento \textbf{CIRSOC 102}.
+
+\section*{Datos del Proyecto}
+Se analiza un tanque de agua cilíndrico ubicado en la \textbf{Ciudad de Buenos Aires (CABA)}:
+\begin{itemize}
+    \item \textbf{Geometría:} Tanque cilíndrico de altura $H = 5\,\text{m}$ y diámetro $D = 4\,\text{m}$.
+    \item \textbf{Configuración:} Tanque cerrado apoyado sobre columnas. El fondo del tanque se encuentra a una altura $C = 10\,\text{m}$ sobre el nivel del suelo.
+    \item \textbf{Condiciones del sitio:} Terreno abierto con obstrucciones dispersas (\textbf{Exposición C}).
+    \item \textbf{Peso y Apoyo:} Peso del tanque lleno $W = 600.000\,\text{N}$. Base de apoyo cuadrada de $3\,\text{m}$ de lado.
+\end{itemize}
+
+\linea
+
+\section*{Ejercicio 1: Cálculo de la Presión y Fuerza del Viento}
+
+En esta fase, el alumno deberá determinar las acciones climáticas que actúan sobre el tanque siguiendo el procedimiento del reglamento \textbf{CIRSOC 102}.
+
+\subsection*{Fase A: Parámetros de Diseño}
+Identifique y justifique los siguientes valores mediante el uso de tablas y mapas del reglamento:
+\begin{enumerate}
+    \item \textbf{Velocidad básica del viento ($V$):} Obtener el valor para CABA para una Categoría de Riesgo II.
+    \item \textbf{Factor de direccionalidad ($K_d$):} Determinar el valor correspondiente para tanques circulares.
+    \item \textbf{Factor topográfico ($K_{zt}$):} Justificar su valor considerando terreno llano.
+    \item \textbf{Factor de altitud ($K_e$):} Adoptar el valor para nivel del mar.
+\end{enumerate}
+
+\subsection*{Fase B: Presión Dinámica ($q_z$)}
+\begin{enumerate}
+    \item \textbf{Coeficiente de exposición ($K_z$):} Determine la altura $z$ del centroide de la superficie expuesta del tanque. Obtenga por interpolación lineal el valor de $K_z$ utilizando la \textbf{Tabla 1.13-1} para la Exposición C.
+    \item \textbf{Cálculo de $q_z$:} Aplique la fórmula reglamentaria en $[N/m^2]$:
+    \[ q_z = 0,613 \cdot K_z \cdot K_{zt} \cdot K_d \cdot K_e \cdot V^2 \]
+\end{enumerate}
+
+\subsection*{Fase C: Fuerza Resultante ($F$)}
+Determine la fuerza total de diseño utilizando la expresión para ``otras estructuras'':
+\[ F = q_z \cdot G \cdot C_f \cdot A_f \]
+\begin{itemize}
+    \item \textbf{Factor de ráfaga ($G$):} Adoptar el valor para estructuras rígidas según Art. 1.9.
+    \item \textbf{Coeficiente de fuerza ($C_f$):} Obtener el valor para un cilindro considerando la relación $H/D$ y el régimen de flujo.
+    \item \textbf{Área proyectada ($A_f$):} Calcular el área geométrica que el viento incide sobre el cilindro.
+\end{itemize}
+
+\linea
+
+\section*{Ejercicio 2: Estabilidad y Equilibrio Estático}
+
+Una vez calculada la fuerza $F$, proceda al análisis de la estabilidad global de la estructura como un cuerpo rígido.
+
+\subsection*{1. Diagrama de Cuerpo Rígido (DCR)}
+Dibuje a escala el sistema tanque-soporte. Represente:
+\begin{itemize}
+    \item La fuerza del viento $F$ aplicada en el centroide (altura $z$).
+    \item El peso propio $W$ aplicado en el eje de simetría.
+    \item Las reacciones en los puntos de apoyo de la base.
+\end{itemize}
+
+\subsection*{2. Cálculo de Momentos}
+\begin{enumerate}
+    \item \textbf{Momento Volcador ($M_v$):} Calcule el momento generado por la fuerza $F$ respecto a la arista de rotación en la base (nivel del suelo).
+    \item \textbf{Momento Estabilizador ($M_e$):} Calcule el momento generado por el peso $W$ respecto a la misma arista de rotación.
+\end{enumerate}
+
+\subsection*{3. Análisis de Seguridad}
+Compare ambos momentos y determine:
+\begin{enumerate}
+    \item ¿Es la estructura estable bajo estas condiciones?
+    \item \textbf{Verificación de condición crítica:} Si el tanque estuviera vacío y su peso se redujera al $20\%$, ¿existe riesgo de vuelco o levantamiento? Justifique mediante el cálculo del nuevo $M_e$.
+\end{enumerate}
+
+\linea
+
+\section*{Preguntas de Reflexión}
+\begin{itemize}
+    \item ¿Cómo influiría en el coeficiente $C_f$ si el tanque tuviera una sección cuadrada en lugar de circular?
+    \item ¿Por qué es necesario interpolar el valor de $K_z$ en lugar de tomar el valor de tabla más cercano?
+\end{itemize}
+
+\end{document}

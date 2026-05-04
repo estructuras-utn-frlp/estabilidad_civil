@@ -1,0 +1,135 @@
+---
+title: "Sistemas de Fuerzas en el Espacio"
+subtitle: "TP N°4 — Estabilidad · 2° año Ingeniería Civil"
+author: "Cátedra: Ing. Zangara / Ing. Ronconi"
+lang: es
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    scrollable: true
+    transition: fade
+    footer: "Estabilidad — UTN FRLP · 2026"
+    width: 1050
+    height: 700
+---
+
+## Del plano al espacio
+
+En el plano: 2 ecuaciones de fuerza + 1 de momento = 3 condiciones.
+
+En el espacio:
+
+$$\sum F_x = 0 \quad \sum F_y = 0 \quad \sum F_z = 0$$
+$$\sum M_x = 0 \quad \sum M_y = 0 \quad \sum M_z = 0$$
+
+> Los momentos ya no son respecto a un **punto** sino respecto a un **eje**.
+
+---
+
+## Cuántas ecuaciones usar
+
+| Sistema | Ecuaciones |
+|---|---|
+| Concurrentes en el espacio | 3 (solo $\sum F$) |
+| Paralelas en el espacio | 3 (1 $\sum F$ + 2 $\sum M$) |
+| No concurrente general | hasta 6 |
+
+La clave es contar las incógnitas y elegir el sistema de ecuaciones que las desacople mejor.
+
+---
+
+## Herramienta fundamental: vector unitario
+
+Para un cable de $A$ a $B$:
+
+$$\hat{u}_{AB} = \frac{\vec{AB}}{|\vec{AB}|} = \frac{(x_B - x_A,\; y_B - y_A,\; z_B - z_A)}{|\vec{AB}|}$$
+
+La tensión en el cable:
+
+$$\vec{T}_{AB} = T_{AB} \cdot \hat{u}_{AB}$$
+
+::: {.callout-tip}
+Siempre verificar que $|\hat{u}| = 1$. Si no da 1, hay un error de cálculo.
+:::
+
+---
+
+## Ejercicio 1 — Mástil con tres tensores
+
+Sistema concurrente en $B$: convergen $T_{BC}$, $T_{BD}$, $T_{BE}$ y $P$.
+
+**Estrategia:** calcular los vectores unitarios de los tres cables y proyectar todas las fuerzas sobre $X$, $Y$ y $Z$.
+
+$$\sum F_x = 0 \qquad \sum F_y = 0 \qquad \sum F_z = 0$$
+
+3 ecuaciones — 3 incógnitas.
+
+::: {.callout-warning}
+Si alguna tensión da negativa el cable comprime — imposible físicamente.
+Revisar la geometría.
+:::
+
+---
+
+## Ejercicio 2 — Viga en voladizo con cables
+
+Sistema concurrente en $B$: $T_{BC}$, $T_{BD}$, $F_{AB}$ y $Q$.
+
+::: {.callout-tip}
+**Simetría:** los puntos $C$ y $D$ son simétricos respecto al plano $XY$.  
+Por lo tanto $T_{BC} = T_{BD}$ — el sistema se reduce a 2 incógnitas.
+:::
+
+Después de resolver $B$, las reacciones en el empotramiento $A$ se obtienen
+por equilibrio global.
+
+---
+
+## Ejercicio 3 — Placa rectangular
+
+Fuerzas paralelas en el espacio — todas verticales.
+
+**Ecuaciones:**
+
+$$\sum F_z = P_E + P_F + P_G - P - Q = 0$$
+
+$$\sum M_{x(EF)} = P_G \cdot b - P \cdot \frac{b}{2} - Q \cdot 1{,}5 = 0$$
+
+$$\sum M_{y(EG)} = P_F \cdot a - P \cdot \frac{a}{2} - Q \cdot 2{,}0 = 0$$
+
+::: {.callout-tip}
+Tomar el eje de momento sobre la línea que une dos barras cancela esas dos
+incógnitas. Cada ecuación tiene una sola incógnita.
+:::
+
+---
+
+## Ejercicio 4 — Cilindro con polea y contrapeso
+
+5 incógnitas: $P$, $Y_A$, $Z_A$, $Y_B$, $Z_B$.
+
+**Ecuación clave — momento respecto al eje $AB$:**
+
+$$-P \cdot R + Q \cdot R = 0 \quad \Rightarrow \quad P = Q$$
+
+Esta ecuación desacopla $P$ de todas las demás incógnitas.
+
+Las reacciones en los cojinetes se obtienen con los momentos respecto a
+ejes en $A$ y las sumatorias de fuerzas.
+
+::: {.callout-note}
+El momento respecto al eje $AB$ es el momento de torsión del cilindro.
+Es la ecuación que controla el equilibrio rotacional del mecanismo.
+:::
+
+---
+
+## Síntesis
+
+1. En el espacio los momentos son respecto a **ejes**, no a puntos.
+2. El vector unitario permite proyectar cables en los tres ejes.
+3. Concurrentes espaciales → 3 ecuaciones de fuerza.
+4. Paralelas en el espacio → 1 fuerza + 2 momentos.
+5. Elegir los ejes de momento estratégicamente desacopla las incógnitas.
+6. En mecanismos con eje de rotación, el momento respecto a ese eje es la ecuación clave.

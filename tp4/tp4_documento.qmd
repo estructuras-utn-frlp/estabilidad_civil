@@ -1,0 +1,210 @@
+---
+title: "Sistemas de Fuerzas en el Espacio"
+subtitle: "TP N°4 — Estabilidad · 2° año Ingeniería Civil"
+author: "Cátedra: Ing. Zangara / Ing. Ronconi"
+date: today
+lang: es
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    theme: cosmo
+    self-contained: true
+  pdf:
+    documentclass: article
+    papersize: a4
+    geometry: margin=2.5cm
+    number-sections: true
+    toc: true
+    fontsize: 11pt
+---
+
+# Introducción: del plano al espacio
+
+En los TPs anteriores todas las fuerzas actuaban en un mismo plano.
+En este TP las fuerzas tienen direcciones arbitrarias en el espacio — cada
+fuerza tiene tres componentes $(F_x, F_y, F_z)$ y cada momento se expresa
+respecto a un **eje**, no respecto a un punto.
+
+Las condiciones de equilibrio en el espacio son seis:
+
+$$\sum F_x = 0 \qquad \sum F_y = 0 \qquad \sum F_z = 0$$
+$$\sum M_x = 0 \qquad \sum M_y = 0 \qquad \sum M_z = 0$$
+
+El número de ecuaciones que se plantea depende del tipo de sistema:
+
+| Sistema | Ecuaciones |
+|---|---|
+| Fuerzas concurrentes en el espacio | 3 (solo fuerzas) |
+| Fuerzas paralelas en el espacio | 3 (1 fuerza + 2 momentos) |
+| Sistema general (no concurrente) | hasta 6 |
+
+---
+
+# Ejercicio 1 — Mástil con tres tensores
+
+## Planteo
+
+El mástil $AB$ es un sistema de fuerzas concurrentes en el nudo $B$:
+convergen en $B$ las tres tensiones de los cables y la fuerza exterior $P$.
+Se plantean tres ecuaciones de fuerza:
+
+$$\sum F_x = 0 \qquad \sum F_y = 0 \qquad \sum F_z = 0$$
+
+## Procedimiento
+
+**Paso 1 — Vectores unitarios de cada cable.**
+
+Para cada cable, el vector unitario desde $B$ hacia el punto de anclaje es:
+
+$$\hat{u}_{BC} = \frac{\vec{BC}}{|\vec{BC}|}$$
+
+**Paso 2 — Componentes de cada tensión.**
+
+$$\vec{T}_{BC} = T_{BC} \cdot \hat{u}_{BC}$$
+
+**Paso 3 — Componentes de la fuerza exterior $P$.**
+
+$P$ está inclinada $20^\circ$ respecto a la horizontal en un plano rotado
+$45^\circ$ respecto al plano $XZ$:
+
+$$P_x = P \cos 20^\circ \cos 45^\circ \qquad
+  P_y = P \cos 20^\circ \sin 45^\circ \qquad
+  P_z = -P \sin 20^\circ$$
+
+**Paso 4 — Plantear y resolver el sistema.**
+
+Sistema de 3 ecuaciones con 3 incógnitas ($T_{BC}$, $T_{BD}$, $T_{BE}$).
+
+::: {.callout-warning}
+Si alguna tensión resulta negativa, el cable trabaja a compresión — físicamente
+imposible para un cable. En ese caso habría que revisar la geometría del sistema.
+:::
+
+---
+
+# Ejercicio 2 — Viga en voladizo con cables
+
+## Planteo
+
+El nudo $B$ recibe la carga $Q$, las tensiones de los cables $BC$ y $BD$,
+y la fuerza axial de la viga $F_{AB}$ (a lo largo del eje $Y$).
+Tres incógnitas → tres ecuaciones de fuerza en $B$.
+
+## Procedimiento
+
+**Paso 1 — Vectores unitarios de $BC$ y $BD$.**
+
+Con las coordenadas dadas:
+
+$$\vec{BC} = C - B = (0-0,\; 1-4,\; 2-0) = (0,\; -3,\; 2)$$
+
+$$|\vec{BC}| = \sqrt{0^2 + 3^2 + 2^2} = \sqrt{13} \approx 3{,}606\,\text{m}$$
+
+**Paso 2 — Ecuaciones de equilibrio en $B$:**
+
+$$\sum F_x = T_{BC} \cdot u_{BCx} + T_{BD} \cdot u_{BDx} = 0$$
+$$\sum F_y = T_{BC} \cdot u_{BCy} + T_{BD} \cdot u_{BDy} + F_{AB} = 0$$
+$$\sum F_z = T_{BC} \cdot u_{BCz} + T_{BD} \cdot u_{BDz} - Q = 0$$
+
+::: {.callout-tip}
+Por simetría de los cables respecto al plano $XY$, $T_{BC} = T_{BD}$.
+Eso reduce el sistema a dos ecuaciones independientes.
+:::
+
+**Paso 3 — Reacciones en el empotramiento $A$.**
+
+El empotramiento transmite fuerzas y momentos en los tres ejes.
+Plantear equilibrio global del sistema completo.
+
+---
+
+# Ejercicio 3 — Placa rectangular
+
+## Planteo
+
+Las tres barras verticales ejercen fuerzas $P_E$, $P_F$, $P_G$ hacia arriba.
+El peso $P$ y la carga puntual $Q$ actúan hacia abajo.
+Sistema de fuerzas paralelas en el espacio → 3 ecuaciones:
+
+$$\sum F_z = 0 \qquad \sum M_x = 0 \qquad \sum M_y = 0$$
+
+## Procedimiento
+
+**Paso 1 — Sumatoria de fuerzas verticales:**
+
+$$P_E + P_F + P_G = P + Q$$
+
+**Paso 2 — Momento respecto al eje $x$ (que pasa por $E$ y $F$):**
+
+$$P_G \cdot b = P \cdot \frac{b}{2} + Q \cdot 1{,}5$$
+
+**Paso 3 — Momento respecto al eje $y$ (que pasa por $E$ y $G$):**
+
+$$P_F \cdot a = P \cdot \frac{a}{2} + Q \cdot 2{,}0$$
+
+::: {.callout-note}
+**Regla de signos para momentos en el espacio:** usar la regla de la mano derecha.
+Si el vector momento apunta en el sentido positivo del eje, el signo es positivo.
+:::
+
+::: {.callout-tip}
+Elegir los ejes de momento sobre la línea de acción de dos barras cancela
+esas dos incógnitas y da directamente la tercera.
+:::
+
+---
+
+# Ejercicio 4 — Cilindro con polea y contrapeso
+
+## Planteo
+
+El eje $AB$ es el eje de rotación del cilindro. Los cojinetes en $A$ y $B$
+solo transmiten reacciones en $y$ y $z$ — no en $x$ (dirección del eje).
+
+Incógnitas: $P$, $Y_A$, $Z_A$, $Y_B$, $Z_B$ → 5 incógnitas.
+
+Como no hay fuerzas en $x$: $\sum F_x = 0$ se satisface trivialmente.
+Quedan 5 ecuaciones útiles:
+
+$$\sum F_y = 0 \qquad \sum F_z = 0$$
+$$\sum M_{xA} = 0 \qquad \sum M_{yC} = 0 \qquad \sum M_{zC} = 0$$
+
+## Procedimiento
+
+**Paso 1 — Momento respecto al eje $AB$ ($\sum M_{xA} = 0$):**
+
+$$-P \cdot R + Q \cdot R = 0 \quad \Rightarrow \quad P = Q \cdot \frac{R_Q}{R_P}$$
+
+Esta ecuación tiene una sola incógnita: $P$.
+
+**Paso 2 — Componentes de $P$:**
+
+$P$ actúa en un plano normal al eje $AB$ formando $40^\circ$ con la vertical:
+
+$$P_y = P \sin 40^\circ \qquad P_z = P \cos 40^\circ$$
+
+**Paso 3 — Momentos respecto a ejes en $A$:**
+
+$$\sum M_{yA} = 0 \quad \Rightarrow \quad Z_B$$
+$$\sum M_{zA} = 0 \quad \Rightarrow \quad Y_B$$
+
+**Paso 4 — Sumatoria de fuerzas:**
+
+$$\sum F_y = 0 \quad \Rightarrow \quad Y_A$$
+$$\sum F_z = 0 \quad \Rightarrow \quad Z_A$$
+
+::: {.callout-note}
+El momento respecto al eje $AB$ es el momento de torsión del cilindro.
+Es la ecuación clave del problema porque desacopla $P$ del resto de las incógnitas.
+:::
+
+# Síntesis
+
+1. En el espacio hay hasta 6 condiciones de equilibrio: 3 de fuerzas y 3 de momentos.
+2. Para sistemas concurrentes espaciales se plantean solo 3 ecuaciones de fuerza.
+3. Para fuerzas paralelas en el espacio: 1 de fuerza + 2 de momentos respecto a ejes.
+4. Los momentos en el espacio son respecto a **ejes**, no a puntos.
+5. Elegir estratégicamente los ejes de momento permite desacoplar las incógnitas.
+6. El vector unitario de cada cable es la herramienta fundamental para proyectar fuerzas en el espacio.

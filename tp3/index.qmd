@@ -1,0 +1,21 @@
+---
+title: "TP N°3 — Fuerzas No Concurrentes. Aplicaciones."
+---
+
+## Guía de cálculo: Presión de diseño del viento (CIRSOC 102)
+
+Antes de resolver el Ejercicio 2, completá la tabla de cálculo de
+presión de viento según el reglamento CIRSOC 102.
+
+[📄 Ver guía de cálculo de viento](#)
+
+## Enunciado
+
+[📄 Descargar enunciado (PDF)](tp3_enunciado.pdf)
+
+## Explicación
+
+
+## Presentación de clase
+
+[▶ Ver presentación](#)
