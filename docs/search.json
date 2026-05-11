@@ -417,7 +417,7 @@
     "href": "index.html#trabajos-prácticos",
     "title": "Estabilidad",
     "section": "1 Trabajos Prácticos",
-    "text": "1 Trabajos Prácticos\n\n\n\nTP\nTema\n\n\n\n\n\nTP1\nFuerzas Concurrentes en el Plano\nEnunciado · Explicación · Presentación\n\n\nTP2\nFuerzas No Concurrentes en el Plano\nEnunciado · Explicación · Presentación\n\n\nTP3\nFuerzas No Concurrentes. Aplicaciones\nEnunciado · Explicación · Presentación\n\n\nTP4\nSistemas de Fuerzas en el Espacio\nEnunciado · Explicación · Presentación"
+    "text": "1 Trabajos Prácticos\n\n\n\nTP\nTema\n\n\n\n\n\nTP1\nFuerzas Concurrentes en el Plano\nEnunciado · Explicación · Presentación\n\n\nTP2\nFuerzas No Concurrentes en el Plano\nEnunciado · Explicación · Presentación\n\n\nTP3\nFuerzas No Concurrentes. Aplicaciones\nEnunciado · Explicación · Presentación\n\n\nTP4\nSistemas de Fuerzas en el Espacio\nEnunciado · Explicación · Presentación\n\n\nTP5\nSistemas Planos Vinculados - 1C\nEnunciado"
   },
   {
     "objectID": "tp1/index.html",
@@ -810,5 +810,19 @@
     "title": "Sistemas de Fuerzas en el Espacio",
     "section": "5.2 Procedimiento",
     "text": "5.2 Procedimiento\nPaso 1 — Momento respecto al eje \\(AB\\) (\\(\\sum M_{xA} = 0\\)):\n\\[-P \\cdot R + Q \\cdot R = 0 \\quad \\Rightarrow \\quad P = Q \\cdot \\frac{R_Q}{R_P}\\]\nEsta ecuación tiene una sola incógnita: \\(P\\).\nPaso 2 — Componentes de \\(P\\):\n\\(P\\) actúa en un plano normal al eje \\(AB\\) formando \\(40^\\circ\\) con la vertical:\n\\[P_y = P \\sin 40^\\circ \\qquad P_z = P \\cos 40^\\circ\\]\nPaso 3 — Momentos respecto a ejes en \\(A\\):\n\\[\\sum M_{yA} = 0 \\quad \\Rightarrow \\quad Z_B\\] \\[\\sum M_{zA} = 0 \\quad \\Rightarrow \\quad Y_B\\]\nPaso 4 — Sumatoria de fuerzas:\n\\[\\sum F_y = 0 \\quad \\Rightarrow \\quad Y_A\\] \\[\\sum F_z = 0 \\quad \\Rightarrow \\quad Z_A\\]\n\n\n\n\n\n\nNota\n\n\n\nEl momento respecto al eje \\(AB\\) es el momento de torsión del cilindro. Es la ecuación clave del problema porque desacopla \\(P\\) del resto de las incógnitas."
+  },
+  {
+    "objectID": "tp5/index.html",
+    "href": "tp5/index.html",
+    "title": "TP N°5 — Sistemas Planos Vinculados - 1C",
+    "section": "",
+    "text": "📄 Descargar enunciado (PDF)"
+  },
+  {
+    "objectID": "tp5/index.html#enunciado",
+    "href": "tp5/index.html#enunciado",
+    "title": "TP N°5 — Sistemas Planos Vinculados - 1C",
+    "section": "",
+    "text": "📄 Descargar enunciado (PDF)"
   }
 ]

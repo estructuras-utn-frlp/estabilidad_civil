@@ -16,3 +16,4 @@ subtitle: "Ingeniería Civil · UTN FRLP · 2026"
 | [TP2](tp2/index.qmd) | Fuerzas No Concurrentes en el Plano | Enunciado · Explicación · Presentación |
 | [TP3](tp3/index.qmd) | Fuerzas No Concurrentes. Aplicaciones | Enunciado · Explicación · Presentación |
 | [TP4](tp4/index.qmd) | Sistemas de Fuerzas en el Espacio | Enunciado · Explicación · Presentación |
+| [TP5](tp5/index.qmd) | Sistemas Planos Vinculados - 1C | Enunciado |

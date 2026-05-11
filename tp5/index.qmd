@@ -1,0 +1,8 @@
+---
+title: "TP N°5 — Sistemas Planos Vinculados - 1C"
+---
+
+## Enunciado
+
+[📄 Descargar enunciado (PDF)](tp5_enunciado.qmd)
+

@@ -18,6 +18,8 @@ website:
             href: tp3/index.qmd
           - text: "TP4 — Fuerzas en el Espacio"
             href: tp4/index.qmd
+          - text: "TP5 — Sistemas Planos Vinculados - 1C"
+            href: tp5/index.qmd
   page-footer:
     center: "Cátedra Zangara / Ronconi · Ingeniería Civil 2026"
 

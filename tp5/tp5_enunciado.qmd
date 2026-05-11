@@ -1,0 +1,99 @@
+---
+title: "Trabajo Extra Clase N°2"
+subtitle: "Equilibrio de una chapa — Vínculos y reacciones"
+author: "RONCONI, Jorge Ernesto"
+date: today
+lang: es
+format:
+  pdf:
+    documentclass: article
+    papersize: a4
+    geometry: margin=2.5cm
+    number-sections: false
+    toc: false
+    fontsize: 11pt
+    include-in-header:
+      text: |
+        \usepackage{multirow}
+        \usepackage{enumitem}
+        \usepackage{pdfpages}
+---
+
+\begin{center}
+\large\textbf{Estabilidad / Estática y Resistencia de Materiales}\\
+\normalsize UT2 — Semana 4 \quad|\quad Trabajo Extra Clase N°2
+\end{center}
+
+\vspace{0.2cm}
+\hrule
+\vspace{0.3cm}
+
+\begin{tabular}{p{9cm} p{5cm}}
+\textbf{Apellido y Nombre:} \dotfill & \textbf{Comisión:} \dotfill \\[0.4cm]
+\textbf{Fecha de entrega:} \dotfill & \\
+\end{tabular}
+
+\vspace{0.3cm}
+\hrule
+\vspace{0.4cm}
+
+Las estructuras correspondientes a cada ejercicio se encuentran
+en la **Lámina de Estructuras** adjunta al final de este enunciado.
+
+\vspace{0.3cm}
+\hrule
+\vspace{0.5cm}
+
+---
+
+## Ejercicio 1 — Balance de grados de libertad y análisis de sustentación
+
+Para cada una de las **11 estructuras** de la Lámina realizar balance de grados de libertad y análisis de sustentación para determinar su condición de isostática, hipostática o hiperestática. Justificar cada caso.
+
+\vspace{1cm}
+
+---
+
+## Ejercicio 2 — Cálculo gráfico de reacciones
+
+Para cada estructura **isostática** identificada en el Ejercicio 1:
+
+**a)** Construir el polígono de fuerzas para determinar gráficamente
+las reacciones. Indicar la escala utilizada.
+
+**b)** ¿En qué casos la resolución gráfica resulta más conveniente
+que la analítica? Justificar:
+
+\vspace{2.5cm}
+
+---
+
+## Ejercicio 3 — Cálculo analítico de reacciones
+
+Para las mismas estructuras isostáticas del Ejercicio 2:
+
+**a)** Plantear las tres ecuaciones de equilibrio para cada estructura.
+Justificar la elección del centro de momentos:
+
+$$\sum F_x = 0 \qquad \sum F_y = 0 \qquad \sum M_O = 0$$
+
+**b)** Comparar con los resultados gráficos del Ejercicio 2.
+¿Coinciden? Si hay diferencias, identificar el origen:
+
+\vspace{2cm}
+
+---
+
+\vspace{0.3cm}
+\hrule
+\vspace{0.3cm}
+
+\begin{center}
+\textit{Presentar planteo, desarrollo, resultado y verificación en cada ejercicio.}
+\end{center}
+
+---
+
+## Anexo — Lámina de estructuras
+
+\includepdf[pages=-, pagecommand={\thispagestyle{empty}}]{anexocivil.pdf}
